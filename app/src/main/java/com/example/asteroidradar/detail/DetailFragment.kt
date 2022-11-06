@@ -1,5 +1,6 @@
 package com.example.asteroidradar.detail
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,8 +16,22 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentDetailBinding.inflate(inflater)
+
+        val asteroid = DetailFragmentArgs.fromBundle(requireArguments()).selectedAsteroid
+        binding.asteroid = asteroid
+
+        binding.helpButton.setOnClickListener {
+            displayAstronomicalUnitExplanationDialog()
+        }
+
         binding.lifecycleOwner = this
         return binding.root
     }
 
+    private fun displayAstronomicalUnitExplanationDialog() {
+        val builder = AlertDialog.Builder(requireActivity())
+            .setMessage(getString(R.string.astronomica_unit_explanation))
+            .setPositiveButton(android.R.string.ok, null)
+        builder.create().show()
+    }
 }
