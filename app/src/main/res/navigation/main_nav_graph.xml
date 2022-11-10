@@ -9,16 +9,20 @@
         android:id="@+id/mainFragment"
         android:name="com.example.asteroidradar.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main"
+        >
+        <action
+            android:id="@+id/action_showDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.asteroidradar.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
-
         <argument
             android:name="selectedAsteroid"
-            app:argType="com.example.asteroidradar.Asteroid" />
+            app:argType="com.example.asteroidradar.domain.Asteroid" />
     </fragment>
 
 </navigation>
