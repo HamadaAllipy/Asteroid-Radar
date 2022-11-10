@@ -1,4 +1,4 @@
-package com.example.asteroidradar
+package com.example.asteroidradar.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
